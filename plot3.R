@@ -15,7 +15,7 @@ pdt <- data[as.character(data$Date) %in% c('1/2/2007', '2/2/2007'),]
 pdt$DateTime <- as.POSIXct(paste(pdt$Date, pdt$Time), format="%d/%m/%Y %H:%M:%S")
 
 #Draw the chart
-plot(pdt$DateTime,pdt$Sub_metering_1, type="l", ylab="Energy sub metering", xlab="", main="")
+plot(pdt$DateTime,pdt$Sub_metering_1, type="l", ylab="Energy sub metering", xlab="", main="", height=480, width=480)
 lines(pdt$DateTime,pdt$Sub_metering_2, col="red")
 lines(pdt$DateTime,pdt$Sub_metering_3, col="blue")
 legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty=c(1,1,1),lwd=c(2.5,2.5,2.5),col=c("black","red","blue"))
