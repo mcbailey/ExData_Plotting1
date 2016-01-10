@@ -10,6 +10,7 @@ pdt <- data[as.character(data$Date) %in% c('1/2/2007', '2/2/2007'),]
 pdt$DateTime <- as.POSIXct(paste(pdt$Date, pdt$Time), format="%d/%m/%Y %H:%M:%S")
 
 # Setup for 4 charts
+png("plot4.png", width = 480, height = 480, units = "px")
 par(mfrow=c(2,2), mar=c(4,5,2,1), las=1, bty="n")
 
 # First chart
@@ -26,3 +27,4 @@ legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty=c(1,
 
 # Fourth
 plot(pdt$DateTime, pdt$Global_reactive_power, type="l", ylab="Global_reactive_power", xlab="datetime", main="", width = 480, height = 480)
+dev.off()

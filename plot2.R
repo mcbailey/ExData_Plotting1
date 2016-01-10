@@ -14,6 +14,7 @@ pdt <- data[as.character(data$Date) %in% c('1/2/2007', '2/2/2007'),]
 # combine Date and Time field
 pdt$DateTime <- as.POSIXct(paste(pdt$Date, pdt$Time), format="%d/%m/%Y %H:%M:%S")
 
-#Draw the chart
+# Draw the chart
+png("plot2.png", width = 480, height = 480, units = "px")
 plot(pdt$DateTime, pdt$Global_active_power, type="l", ylab="Global Active Power (kilowatts)", xlab="", main="")
-
+dev.off()
